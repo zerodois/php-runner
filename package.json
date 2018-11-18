@@ -1,0 +1,24 @@
+{
+  "name": "php-run",
+  "version": "0.0.0",
+  "description": "A minimal Electron PHP runner",
+  "main": "src/main/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/zerodois/php-run",
+  "keywords": [
+    "Electron",
+    "PHP",
+    "Runner"
+  ],
+  "author": "zerodois <felipelopesrita@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^3.0.4",
+    "electron-reload": "^1.3.0"
+  },
+  "dependencies": {
+    "monaco-loader": "^0.14.0"
+  }
+}
