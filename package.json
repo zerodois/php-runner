@@ -31,6 +31,7 @@
     "react-dom": "^16.6.3"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "monaco-loader": "^0.14.0"
   }
 }
