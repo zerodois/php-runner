@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import loader from 'monaco-loader';
 
 class Code extends Component {
+	constructor () {
+		super()
+		this.state = {
+			editor: null
+		}
+	}
 	async componentDidMount () {
 		const monaco = await loader()
 	  const editor = monaco.editor.create(this.container, {
@@ -9,11 +15,15 @@ class Code extends Component {
 	    theme: 'vs-dark',
 	    automaticLayout: true,
 	    value: '<?php\n// Type your code here\n',
-	  })
+		})
+		this.setState({ editor })
 	}
 	render () {
 		return (
-			<div id="container" ref={cont => (this.container = cont)} />
+			<div
+				className="Code"
+				id="container"
+				ref={cont => (this.container = cont)} />
 		);
 	}
 }
