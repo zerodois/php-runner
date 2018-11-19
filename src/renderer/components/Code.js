@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import loader from 'monaco-loader';
 
 class Code extends Component {
-	constructor () {
+	constructor (props) {
 		super()
 		this.state = {
 			editor: null
 		}
+		props.register(this.getCode)
+	}
+	getCode = () => {
+		return 'CARARARARAR'
 	}
 	async componentDidMount () {
 		const monaco = await loader()
