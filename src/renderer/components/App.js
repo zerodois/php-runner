@@ -1,27 +1,16 @@
 import React, { Component } from 'react'
-import Code from './Code'
-import Sidebar from './Sidebar'
-import { execute } from '../services/code'
+import Home from './Home'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
-export default class App extends Component {
-  state = {
-    getter: null
-  }
-  register = getter => {
-    this.setState({ getter })
-  }
-  onClick = () => {
-    let p = execute(this.state.getter())
-    p.then(console.log).catch(e => console.error(e))
-  }
+library.add(faPlay)
+
+class App extends Component {
   render () {
     return (
-    	<div className="App">
-        <Sidebar
-          onClick={this.onClick} />
-        <Code
-          register={this.register} />
-    	</div>
-    );
+      <Home />
+    )
   }
 }
+
+export default App;

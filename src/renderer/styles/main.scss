@@ -1,5 +1,8 @@
+@import 'variables';
 @import 'App';
 @import 'Code';
+@import 'Sidebar';
+@import 'Output';
 
 * {
 	box-sizing: border-box;
@@ -8,4 +11,16 @@ html, body {
 	height: 100%;
 	margin: 0;
 	overflow: hidden;
+}
+.hover {
+	cursor: pointer;
+}
+.flex-1 {
+	flex: 1;
+}
+.ghost {
+	opacity: .8;
+	&:hover {
+		opacity: 1;
+	}
 }
