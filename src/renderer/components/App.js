@@ -12,7 +12,7 @@ export default class App extends Component {
   }
   onClick = () => {
     let p = execute(this.state.getter())
-    p.then(console.log).catch(console.error)
+    p.then(console.log).catch(e => console.error(e))
   }
   render () {
     return (

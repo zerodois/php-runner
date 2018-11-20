@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron')
 const { join } = require('path')
+const { to } = require('./utils')
 const events = require('./events')
 
 const electron = join(__dirname, '..', '..', 'node_modules', '.bin', 'electron')
@@ -16,7 +17,13 @@ function createWindow () {
   mainWindow.toggleDevTools()
   Menu.setApplicationMenu(null)
   for (let event in events) {
-    ipcMain.on(event, (e, data) => events[event](data, e.sender))
+    ipcMain.on(event, async (e, data) => {
+      const [err, response] = await to(events[event](data, e.sender))
+      if (err) {
+        e.sender.send(`${event}:error`, err.message)
+      }
+      e.sender.send(`${event}:response`, response)
+    })
   }
 }
 

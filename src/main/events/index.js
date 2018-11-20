@@ -1,5 +1,8 @@
+const { execute } = require('../compiler')
+
 module.exports = {
-	'code:execute': (code, res) => {
-		res.send('code:execute:response', 'RESPOSTA')
+	'code:execute': async (code) => {
+		const resp = await execute(code)
+		return resp
 	}
 }
