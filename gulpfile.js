@@ -23,7 +23,8 @@ gulp.task('js', () =>
   gulp
     .src(['src/renderer/**/*.js'])
     .pipe(babel({
-      presets: ['@babel/env', '@babel/preset-react']
+      presets: ['@babel/env', '@babel/preset-react'],
+      plugins: ['@babel/plugin-proposal-class-properties']
     }))
     .on('error', console.error)
     // .pipe(babel({ "presets": ["@babel/preset-env"] }))
