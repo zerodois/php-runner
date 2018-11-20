@@ -2,7 +2,6 @@ const { spawn } = require('child_process')
 const gulp = require('gulp')
 const babel = require('gulp-babel')
 const sass = require('gulp-sass')
-const css = require('gulp-css')
 sass.compiler = require('node-sass');
  
 gulp.task('sass', () =>
@@ -42,4 +41,13 @@ gulp.task('run', ['compile'], () =>
 )
 
 gulp.task('start', ['run'], () => 
-  gulp.watch('src/renderer/**/*.*', ['compile']))
+  gulp.watch('src/renderer/**/*.*', ['compile'])
+)
+
+gulp.task('release', ['compile'], () => {
+  spawn(
+    'node_modules/.bin/electron-builder', 
+    ['.'], 
+    { stdio: 'inherit' }
+  ).on('close', () => process.exit());
+})
