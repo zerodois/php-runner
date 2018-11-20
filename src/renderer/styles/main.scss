@@ -12,7 +12,10 @@ html, body {
 	margin: 0;
 	overflow: hidden;
 }
-.hover {
+.relative {
+	position: relative;
+}
+.pointer {
 	cursor: pointer;
 }
 .flex-1 {
@@ -22,5 +25,18 @@ html, body {
 	opacity: .8;
 	&:hover {
 		opacity: 1;
+	}
+}
+.scroll {
+	&::-webkit-scrollbar {
+		background: var(--dark-color);
+		border-left: thin solid var(--divider-color);
+	}
+	&::-webkit-scrollbar-thumb {
+		transition: all 2s ease-in-out;
+		background-color: rgba(255, 255, 255, 0);
+	}
+	&:hover::-webkit-scrollbar-thumb {
+		background-color: rgba(255, 255, 255, .2);
 	}
 }

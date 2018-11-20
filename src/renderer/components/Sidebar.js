@@ -8,7 +8,7 @@ class Sidebar extends Component {
       <section className="Sidebar">
         <span
           onClick={onClick}
-          className="button hover ghost">
+          className="button pointer ghost">
           <FontAwesomeIcon
             size="2x"
             icon="play" />

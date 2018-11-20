@@ -20,7 +20,9 @@ class Code extends Component {
 	    automaticLayout: true,
 	    value: '<?php\n// Type your code here\n',
 		})
-		editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, this.props.onSubmit)
+		editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+			this.props.onSubmit()
+		})
 		this.setState({ editor })
 	}
 	render () {

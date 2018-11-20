@@ -1,2 +1,63 @@
 .Output {
+  font: caption;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40vh;
+  width: 100%;
+  background: var(--primary-color);
+  border-top: thin solid var(--divider-color);
+  --padd: .5rem;
+  padding: var(--padd) 0 0 var(--padd);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  .bar-title, .close-button {
+    display: inline-block;
+    padding: var(--padd);
+    padding-top: 0;
+  }
+  .bar-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .topbar {
+    display: flex;
+  }
+  .runner {
+    padding-bottom: var(--padd);
+    margin-left: var(--padd);
+    overflow-y: auto;
+  }
+  code, pre {
+    font: caption;
+    font-size: .8rem;
+    margin: 0;
+    line-height: 1.1rem;
+    &.error {
+      color: var(--danger-color);
+    }
+  }
+  [class*="dot"] {
+    &:first-child {
+      margin-left: .10rem;
+    }
+    opacity: 0;
+  }
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @for $i from 1 through 3 {
+    .dot-#{$i} {
+      animation: show 1.4s linear #{($i+1) * .2}s infinite forwards;
+    }
+  }
 }
