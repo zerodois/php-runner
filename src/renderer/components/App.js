@@ -3,17 +3,14 @@ import Code from './Code';
 import Sidebar from './Sidebar';
 
 export default class App extends Component {
-  constructor () {
-    super()
-    this.state = {
-      getter: null
-    }
+  state = {
+    getter: null
   }
   register = getter => {
     this.setState({ getter })
   }
   onClick = () => {
-    console.log('omkcaikdisaod')
+    console.log(this.state.getter())
   }
   render () {
     return (
