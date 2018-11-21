@@ -1,10 +1,13 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron')
 const { join } = require('path')
 const { to } = require('./utils')
+const isDev = !!process.env.DEV
 const events = require('./events')
 
-const electron = join(__dirname, '..', '..', 'node_modules', '.bin', 'electron')
-require('electron-reload')(join(__dirname, '..'), { electron })
+if (isDev) {
+  const electron = join(__dirname, '..', '..', 'node_modules', '.bin', 'electron')
+  require('electron-reload')(join(__dirname, '..'), { electron })
+}
 
 let mainWindow
 
@@ -14,7 +17,9 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
-  mainWindow.toggleDevTools()
+  if (isDev) {
+    mainWindow.toggleDevTools()
+  }
   Menu.setApplicationMenu(null)
   for (let event in events) {
     ipcMain.on(event, async (e, data) => {
